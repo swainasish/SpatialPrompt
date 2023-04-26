@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkspatial_prompt=self.webpackChunkspatial_prompt||[]).push([[594],{6712:p=>{p.exports=JSON.parse('{"permalink":"/spatial_prompt/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
