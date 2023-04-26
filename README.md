@@ -1,1 +1,1 @@
-# SpatialPrompt : Scalable and Efficient algorithm for Clustering and Cell Type Deconvolution in Spatial Transcriptomics
+# SpatialPrompt : Scalable and efficient algorithm for cell Type Deconvolution and clustering in Spatial Transcriptomics
