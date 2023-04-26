@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkspatial_prompt=self.webpackChunkspatial_prompt||[]).push([[718],{9959:a=>{a.exports=JSON.parse('{"allTagsPath":"/spatial_prompt/blog/tags","slug":"/spatial_prompt/blog/tags/hello","name":"hello","count":2,"permalink":"/spatial_prompt/blog/tags/hello"}')}}]);
