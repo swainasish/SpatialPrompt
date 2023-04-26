@@ -7,13 +7,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
   url: 'https://github.com',
-  baseUrl: '/spatial_prompt/',
+  baseUrl: '/SpatialPrompt/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'swainasish', // Usually your GitHub org/user name.
   projectName: 'SpatialPrompt', // Usually your repo name.
-  deploymentBranch : "gh-pages",
+  //deploymentBranch : "gh-pages",
   
   presets: [
     [
