@@ -1,0 +1,10 @@
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+spatialprompt/__init__.py
+spatialprompt.egg-info/PKG-INFO
+spatialprompt.egg-info/SOURCES.txt
+spatialprompt.egg-info/dependency_links.txt
+spatialprompt.egg-info/requires.txt
+spatialprompt.egg-info/top_level.txt
