@@ -1,7 +1,7 @@
 """
 Created on Tue Jun 28 12:11:26 2022
 @author: swainkasish@gmail.com
-spatialprompt_V 0.0.2
+spatialprompt_V 0.0.3
 """
 #%%
 #%% import libraries 
@@ -373,8 +373,21 @@ class SpatialDeconvolution:
         print(f"Total Time spent: {t2-t1} Sec")
     
         return st_pred_ct
-    
-    
+    def cluster_cell_annotation(self,ct_deconv,cluster_annot,threshold=0.30):
+        dicti_annot = {}
+        cluster_nums = len(np.unique(cluster_annot))
+        for i in range(cluster_nums):
+            clus_temp1_index = cluster_annot == i
+            clus_deconvo = ct_deconv[clus_temp1_index].mean(axis=0)
+            clus_deconvo_major = clus_deconvo[clus_deconvo>threshold]
+            if len(clus_deconvo_major)==0:
+                thres = threshold - 0.10
+                clus_deconvo_major = clus_deconvo[clus_deconvo>thres]
+            dicti_annot[i] = ' / '.join(list(clus_deconvo_major.index))
+            if len(clus_deconvo_major)==0:
+                dicti_annot[i] = "ambiguous"
+        mod_cluster_annot = pd.Categorical([dicti_annot[i]for i in cluster_annot])
+        return dicti_annot,mod_cluster_annot
 #%% 
 class SpatialCluster:
     def __init__(self):
@@ -439,5 +452,3 @@ class SpatialCluster:
         print(f"Executed in {t2-t1} second")
         
         return cluster_assignment
-
-
