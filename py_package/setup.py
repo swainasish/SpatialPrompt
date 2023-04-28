@@ -10,8 +10,8 @@ classifiers = [
  
 setup(
   name='spatialprompt',
-  version='0.0.1',
-  description='Scalable and efficient Cell type deconvolution and clustering in spatial transcriptomics',
+  version='0.0.2',   #mandatory change
+  description='Scalable and efficient cell type deconvolution and clustering in spatial transcriptomics',
   long_description=open('README.md').read() ,
   url='',  
   author='Asish Kumar Swain',
@@ -20,9 +20,9 @@ setup(
   classifiers=classifiers,
   keywords='willupdate', 
   packages=find_packages(),
-  install_requires=['pandas>=2.0.1',
+  install_requires=['pandas>=1.3.5',
         'numpy>=1.21.6',
-        'scikit-learn>=1.2.2',
-        "alive_progress>=3.1.1",
-        "scipy>=1.9.1"] 
+        'scikit-learn>=1.0.2',
+        "alive_progress>=3.0.1",
+        "scipy>=1.7.3"] 
 )

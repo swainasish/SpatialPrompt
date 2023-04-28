@@ -1,8 +1,7 @@
 """
 Created on Tue Jun 28 12:11:26 2022
-
 @author: swainkasish@gmail.com
-spatialCDR version : 0.0.8
+spatialprompt_V 0.0.2
 """
 #%%
 #%% import libraries 
@@ -17,6 +16,7 @@ from scipy.spatial import cKDTree
 from  scipy.spatial.distance import cdist
 from sklearn.cluster import KMeans,AgglomerativeClustering
 from sklearn.linear_model import Ridge,RidgeCV
+
 #%%
 class SpatialDeconvolution:
     def __init__(self):
@@ -266,13 +266,13 @@ class SpatialDeconvolution:
         distances, nei_indexes = tree.query(cor_mat, k=n_neighbor)
         nei_indexes = nei_indexes[:,1:]
         n_spot,n_gene = expr_matrix.shape
-        domain_index = np.zeros([n_spot,int(n_neighbor/3)])
+        domain_index = np.zeros([n_spot,int(n_neighbor/2)])
         for i in range(n_spot):
             own_expression = expr_matrix[i,:]
             spot_nei_index = nei_indexes[i]
             nei_expression = expr_matrix[spot_nei_index,:]
             similarity  = 1-cdist(own_expression.reshape(1,-1),nei_expression,'cosine')[0]
-            spot_dom_index = spot_nei_index[np.argsort(similarity)[::-1][0:int(n_neighbor/3)]]
+            spot_dom_index = spot_nei_index[np.argsort(similarity)[::-1][0:int(n_neighbor/2)]]
             domain_index[i,:] = spot_dom_index
         domain_index = np.array(domain_index,dtype=np.int32)
         return domain_index
@@ -356,7 +356,7 @@ class SpatialDeconvolution:
     def predict_cell_prop(self,sc_array,st_array,
                           sc_genes,st_genes,sc_labels,
                           x_cord,y_cord,
-                          n_hvgs=1000,min_cell=10,max_cell=15,return_prop=True,spot_ratio= [0.33,0.33,0.33],n_neighbor=40,n_itr=3):
+                          n_hvgs=1000,min_cell=10,max_cell=15,return_prop=True,spot_ratio= [0.33,0.33,0.33],n_neighbor=45,n_itr=3):
         t1 = time.time()
         sc_processed,st_processed = self.__preprocessing__(sc_array, st_array,
                                                            sc_genes, st_genes,n_hvgs=n_hvgs) 
@@ -394,7 +394,7 @@ class SpatialCluster:
         st_df_graph_pca = pca.fit_transform(st_df_graph_std)
         if n_clus=="auto":
             n_clus = self.__auto_k_find__(st_df_graph_pca)
-        kmean = KMeans(n_clusters=n_clus,init ="k-means++",n_init=1)
+        kmean = KMeans(n_clusters=n_clus)
         kmean.fit(st_df_graph_pca)
         labels = np.array(kmean.labels_)
         return labels
@@ -419,7 +419,7 @@ class SpatialCluster:
         df = minmax.fit_transform(df)
         return np.array(df)
     
-    def fit_predict(self,st_array,x_cor,y_cor,n_neighbor=30,n_itr=3,n_cluster="auto",W=0.4,n_hvg=1000):
+    def fit_predict(self,st_array,x_cor,y_cor,n_neighbor=20,n_itr=3,n_cluster="auto",W=0.4,n_hvg=1000):
         t1 = time.time()
         with alive_bar(5,title="Spatial clustering: ") as bar:
             st_array_hvg = self.__hvg_detect__(st_array,N=n_hvg)
@@ -439,3 +439,5 @@ class SpatialCluster:
         print(f"Executed in {t2-t1} second")
         
         return cluster_assignment
+
+
