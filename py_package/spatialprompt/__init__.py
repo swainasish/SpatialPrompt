@@ -1,9 +1,8 @@
 """
 Created on Tue Jun 28 12:11:26 2022
 @author: swainkasish@gmail.com
-spatialprompt_V 0.0.3
+spatialprompt_V 0.0.4
 """
-#%%
 #%% import libraries 
 import numpy as np
 import pandas as pd 
@@ -16,8 +15,7 @@ from scipy.spatial import cKDTree
 from  scipy.spatial.distance import cdist
 from sklearn.cluster import KMeans,AgglomerativeClustering
 from sklearn.linear_model import Ridge,RidgeCV
-
-#%%
+#%% fast spatial_prompt 
 class SpatialDeconvolution:
     def __init__(self):
         pass
@@ -70,6 +68,7 @@ class SpatialDeconvolution:
                 sorted_variance_indexes = np.argsort(sc_vars)[::-1]
                 bar()
                 top_hvg_index = sorted_variance_indexes[0:n_hvgs]
+                
                 self.hvgs = sc_cg_df.columns[top_hvg_index]
                 sc_df = sc_df.loc[:,self.hvgs]
                 st_df = st_df.loc[:,self.hvgs]
@@ -289,33 +288,29 @@ class SpatialDeconvolution:
     
     
     def __spatial_integration__(self,simu_arr,real_arr,x_cor,y_cor,n_neighbor =40,n_itr=3):
-        simu_arr_norm,real_arr_norm = self.__normalisation1__(simu_arr),self.__normalisation1__(real_arr)
-        n_spot,n_gene = real_arr_norm.shape
-        domain_index = self.__domain_neighbor_index__(real_arr_norm, x_cor, y_cor,n_neighbor =n_neighbor)
-        std_scale = StandardScaler()
-        real_arr_norm_std = std_scale.fit_transform(real_arr_norm)
-        simu_arr_norm_std = std_scale.fit_transform(simu_arr_norm)
-        real_exp_spatial = self.__domain_inspired__(real_arr_norm, domain_index,n_itr=n_itr )
-        ridge_cv = RidgeCV(alphas=[1,10,25,50,100,500,1000,5000])
-        chunk_st, chunk_sc = self.__chunk_df__(real_arr_norm_std,real_exp_spatial,5000)
-        ridge_cv.fit(chunk_st, chunk_sc)
-        print(ridge_cv.alpha_)
-        ridge_model = Ridge(alpha=ridge_cv.alpha_)
-        ridge_model.fit(real_arr_norm_std,real_exp_spatial)
-        simu_exp_spatial = ridge_model.predict(simu_arr_norm_std)
-        
-        
-
-        simu_exp_spatial[simu_exp_spatial<0]=0
-        
-        real_nei_arr = np.hstack([real_arr_norm,real_exp_spatial])
-        simu_nei_arr = np.hstack([simu_arr_norm,simu_exp_spatial])
-        
-        
+        with alive_bar(5,title="Capturing spatial microenvironment relation:") as bar:
+            simu_arr_norm,real_arr_norm = self.__normalisation1__(simu_arr),self.__normalisation1__(real_arr)
+            n_spot,n_gene = real_arr_norm.shape
+            domain_index = self.__domain_neighbor_index__(real_arr_norm, x_cor, y_cor,n_neighbor =n_neighbor)
+            std_scale = StandardScaler()
+            bar()
+            real_arr_norm_std = std_scale.fit_transform(real_arr_norm)
+            simu_arr_norm_std = std_scale.fit_transform(simu_arr_norm)
+            bar()
+            real_exp_spatial = self.__domain_inspired__(real_arr_norm, domain_index,n_itr=n_itr )
+            ridge_cv = RidgeCV(alphas=[1,10,25,50,100,500,1000,5000])
+            bar()
+            chunk_st, chunk_sc = self.__chunk_df__(real_arr_norm_std,real_exp_spatial,5000)
+            ridge_cv.fit(chunk_st, chunk_sc)
+            ridge_model = Ridge(alpha=ridge_cv.alpha_)
+            bar()
+            ridge_model.fit(real_arr_norm_std,real_exp_spatial)
+            simu_exp_spatial = ridge_model.predict(simu_arr_norm_std)
+            simu_exp_spatial[simu_exp_spatial<0]=0            
+            real_nei_arr = np.hstack([real_arr_norm,real_exp_spatial])
+            simu_nei_arr = np.hstack([simu_arr_norm,simu_exp_spatial])
+            bar()   
         return real_nei_arr,simu_nei_arr
-            
-        
-        
 
     def __fit_predict__(self,real_st,simu_st,simu_prop,return_prop = True):
         
@@ -329,10 +324,10 @@ class SpatialDeconvolution:
         cell_prop_threshold : Threshold for low expression celltype
             
         """
-        with alive_bar(5,title="Fitting Domain Adapt Model :") as bar:
+        with alive_bar(5,title="Spot Denvolution:") as bar:
             simu_st_norm = self.__normalisation2__(simu_st)
             real_st_norm = self.__normalisation2__(real_st)
-            # bar()
+            bar()
       
             model = KNeighborsRegressor(n_neighbors=250)
             bar()
@@ -388,6 +383,8 @@ class SpatialDeconvolution:
                 dicti_annot[i] = "ambiguous"
         mod_cluster_annot = pd.Categorical([dicti_annot[i]for i in cluster_annot])
         return dicti_annot,mod_cluster_annot
+    
+
 #%% 
 class SpatialCluster:
     def __init__(self):
@@ -407,7 +404,7 @@ class SpatialCluster:
         st_df_graph_pca = pca.fit_transform(st_df_graph_std)
         if n_clus=="auto":
             n_clus = self.__auto_k_find__(st_df_graph_pca)
-        kmean = KMeans(n_clusters=n_clus)
+        kmean = KMeans(n_clusters=n_clus,n_init=20)
         kmean.fit(st_df_graph_pca)
         labels = np.array(kmean.labels_)
         return labels
