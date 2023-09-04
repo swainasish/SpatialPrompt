@@ -14,7 +14,7 @@ plugins:
   - table-reader
   - search
 nav:
-  - Home: Documentation/Installation.md
+  #- Home: Documentation/Installation.md
   - Documentations:
     - Documentation/Installation.md
     - Documentation/Deconvolution.md
@@ -22,6 +22,8 @@ nav:
     - Documentation/Database_linker.md
   - Tutorials:
     - Tutorials/Tutorial_1_SpatialPrompt.md
+    - Tutorials/Tutorial_2_DLPFC.md
   - SpatialPromptDB:
-    - SpatialPromptDB/bcf.md
+    - SpatialPromptDB/human references.md
+    - SpatialPromptDB/Mouse references.md
 
