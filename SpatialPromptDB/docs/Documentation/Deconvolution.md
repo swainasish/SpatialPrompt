@@ -14,7 +14,7 @@ This program performs spot deconvolution in spatial data using scRNA-seq data re
 - `st_array`: Matrix of Spatial data, where rows are the cells and columns are the genes.
 - `sc_genes`: Gene names of the `sc_array` matrix.
 - `st_genes`: Gene names of the `st_array` matrix.
-- `sc_labels`: Cell type proportions of `sc_array`.
+- `sc_labels`: Cell type annotations of `sc_array`.
 - `x_cord`: X coordinate array of spatial data.
 - `y_cord`: Y coordinate array of spatial data.
 - `n_hvgs` (default=1000): Number of high variance genes to consider for analysis.

@@ -13,3 +13,11 @@ pip install spatialprompt
 ```
 ## Qucik start
 ### Spatial spot deconvolution 
+For spot deconvolutiom SpatialPrompt requires:
+- `sc_array`: Matrix of Single-cell data, where rows are the cells and columns are the genes.
+- `st_array`: Matrix of Spatial data, where rows are the cells and columns are the genes.
+- `sc_genes`: Gene names of the `sc_array` matrix.
+- `st_genes`: Gene names of the `st_array` matrix.
+- `sc_labels`: Cell type annotations of `sc_array`.
+- `x_cord`: X coordinate array of spatial data.
+- `y_cord`: Y coordinate array of spatial data.
