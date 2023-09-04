@@ -58,3 +58,38 @@ sc.pl.spatial(st_data,
               library_id='V1_Mouse_Brain_Sagittal_Anterior')
 ```
 ![alt text](tutorials/images/m_cortex_deconv.png)
+### Spatial domain identification
+For domain identification SpatialPrompt requires:
+- `st_array`: Matrix of Spatial data, where rows are the cells and columns are the genes.
+- `x_cord`: X coordinate array of spatial data.
+- `y_cord`: Y coordinate array of spatial data.
+##### Import the library and download the data
+```
+import scanpy as sc
+import spatialprompt as sp
+import gdown
+gdown.download("https://drive.google.com/uc?id=1h7E5nPs2ga1ixOBDjLJKK7V8xJq93ez5","st_m_cortex.h5ad", quiet=False)
+```
+##### Load the data into Scanpy and retrieve required information
+```
+st_data = sc.read_h5ad("st_m_cortex.h5ad")
+#Requires raw data
+st_array = st_data.X.toarray()
+x_cord = st_data.obs.array_row
+y_cord = st_data.obs.array_col
+```
+##### Perform spatial clustering
+```
+clus_model = sp.SpatialCluster()
+cortex_domains = clus_model.fit_predict(st_array = st_array,
+                                        x_cor = x_cord,
+                                        y_cor = y_cord,n_cluster=20)
+st_data.obs.loc[:,"SpatialPrompt: clusters"] = cortex_domains
+```
+##### Plot the results 
+```
+sc.pl.spatial(st_data,color=("SpatialPrompt: clusters"),
+              library_id='V1_Mouse_Brain_Sagittal_Anterior',
+              palette="tab20")
+```
+![alt text](tutorials/images/m_cortex_domains.png)
