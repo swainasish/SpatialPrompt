@@ -8,13 +8,15 @@ theme:
   - content.code.copy
   - navigation.tabs
   - navigation.tabs.sticky
+  logo: assets/logo.png
+
 markdown_extensions:
   - tables
 plugins:
   - table-reader
   - search
 nav:
-  #- Home: Documentation/Installation.md
+  - Home: Documentation/Installation.md
   - Documentations:
     - Documentation/Installation.md
     - Documentation/Deconvolution.md
