@@ -1,8 +1,9 @@
 # SpatialPrompt : Spatially aware scalable and accurate tool for spot deconvolution and clustering in spatial transcriptomics
 
 Article url: [abc.com] \
-SpatialPromptDB database url: [abc.com] \
-Documentation & tutorial url: [abc.com] 
+SpatialPromptDB database url: [https://swainasish.github.io/SpatialPrompt/] \
+Tutorial.1.Mouse cortex: [https://swainasish.github.io/SpatialPrompt/Tutorials/Tutorial_1_SpatialPrompt/] 
+Tutorial.2.Human dorsolateral prefrontal cortex: [https://swainasish.github.io/SpatialPrompt/Tutorials/Tutorial_2_DLPFC/]
 ### Graphical overview 
 ![alt text](tutorials/images/graphical_abstract.png)
 SpatialPrompt integrates gene expression, spatial location, and reference single cell RNA sequencing data for spatial deconvolution.\ For spatial clustering, tool requires only gene expression with spatial locations.
