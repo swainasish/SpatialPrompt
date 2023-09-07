@@ -28,4 +28,5 @@ nav:
   - SpatialPromptDB:
     - SpatialPromptDB/human references.md
     - SpatialPromptDB/Mouse references.md
-
+hide:
+  - footer
