@@ -1,0 +1,32 @@
+site_name: SpatialPrompt
+
+theme:
+  name: material
+  palette:
+    primary:deep purple
+  features:
+  - content.code.copy
+  - navigation.tabs
+  - navigation.tabs.sticky
+  logo: assets/logo.png
+
+markdown_extensions:
+  - tables
+plugins:
+  - table-reader
+  - search
+nav:
+  - Home: Documentation/Installation.md
+  - Documentations:
+    - Documentation/Installation.md
+    - Documentation/Deconvolution.md
+    - Documentation/Clustering.md
+    - Documentation/Database_linker.md
+  - Tutorials:
+    - Tutorials/Tutorial_1_SpatialPrompt.md
+    - Tutorials/Tutorial_2_DLPFC.md
+  - SpatialPromptDB:
+    - SpatialPromptDB/human references.md
+    - SpatialPromptDB/Mouse references.md
+hide:
+  - footer
