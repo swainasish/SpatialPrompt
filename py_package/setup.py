@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
  
 classifiers = [
-   'Development Status :: 5 - Stable ',
+   'Development Status :: 5 - Production/Stable',
   'Operating System :: Microsoft :: Windows :: Windows 10',
   'Operating System :: POSIX :: Linux',
   'License :: OSI Approved :: MIT License',
