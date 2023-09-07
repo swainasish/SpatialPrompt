@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
  
 classifiers = [
-   'Development Status :: 3 - Alpha ',
-  'Intended Audience :: Education',
+   'Development Status :: 5 - Stable ',
   'Operating System :: Microsoft :: Windows :: Windows 10',
+  'Operating System :: POSIX :: Linux',
   'License :: OSI Approved :: MIT License',
   'Programming Language :: Python :: 3'
 ]
  
 setup(
   name='SpatialPrompt',
-  version='0.0.4',   #mandatory change
+  version='0.0.5',   #mandatory change
   description='Scalable and efficient cell type deconvolution and clustering in spatial transcriptomics',
   long_description=open('README.md').read() ,
   url='',  

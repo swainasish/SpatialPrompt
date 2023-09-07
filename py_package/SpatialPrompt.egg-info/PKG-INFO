@@ -1,20 +1,18 @@
 Metadata-Version: 2.1
 Name: SpatialPrompt
-Version: 0.0.4
+Version: 0.0.5
 Summary: Scalable and efficient cell type deconvolution and clustering in spatial transcriptomics
-Home-page: UNKNOWN
+Home-page: 
 Author: Asish Kumar Swain
 Author-email: swainkasish@gmail.com
 License: MIT
 Keywords: willupdate
-Platform: UNKNOWN
-Classifier: Development Status :: 3 - Alpha 
-Classifier: Intended Audience :: Education
+Classifier: Development Status :: 5 - Stable 
 Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
 License-File: LICENCE.txt
 
 # SpatialPrompt 
 ## Scalable and efficient cell type deconvolution and clustering in spatial transcriptomics
-
