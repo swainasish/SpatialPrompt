@@ -8,7 +8,6 @@ theme:
   - content.code.copy
   - navigation.tabs
   - navigation.tabs.sticky
-  logo: assets/logo.png
 
 markdown_extensions:
   - tables
@@ -28,5 +27,3 @@ nav:
   - SpatialPromptDB:
     - SpatialPromptDB/human references.md
     - SpatialPromptDB/Mouse references.md
-hide:
-  - footer
