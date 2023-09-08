@@ -6,7 +6,8 @@ Tutorial.1.Mouse cortex: [Link](https://swainasish.github.io/SpatialPrompt/Tutor
 Tutorial.2.Human dorsolateral prefrontal cortex: [Link](https://swainasish.github.io/SpatialPrompt/Tutorials/Tutorial_2_DLPFC/)
 ### Graphical overview 
 ![alt text](tutorials/images/graphical_abstract.png)
-SpatialPrompt integrates gene expression, spatial location, and reference single cell RNA sequencing data for spatial deconvolution.\ For spatial clustering, tool requires only gene expression with spatial locations.
+SpatialPrompt integrates gene expression, spatial location, and reference single cell RNA sequencing data for spatial deconvolution.\
+For spatial clustering, tool requires only gene expression with spatial locations.
 ### Installation using PIP 
 Platforms: Ubuntu: 22.04/20.04, Windows: 10/11, Mac-OS: Ventura - Python: 3.10 Preferable
 ```
