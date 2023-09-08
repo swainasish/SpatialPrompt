@@ -1,6 +1,6 @@
 #Tutorial.1.Mouse-cortex-Visium
 In this tutorial, we will perform spatial deconvolution and spatial clustering using 10X Visium mouse cortex dataset. The cortex Visium dataset can be obtain on the 10X-database. scRNA-seq reference obtained from Allen Institute, generated with the SMART-Seq2 protocol (GSE71585).
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BayraktarLab/cell2location/blob/master/docs/notebooks/cell2location_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1leAZVF45zNLzgj6QQT2CCFLbL9vIdObl?usp=sharing)
 
 *Install* Basic packages
 
