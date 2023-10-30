@@ -13,7 +13,7 @@ Platforms: Ubuntu: 22.04/20.04, Windows: 10/11, Mac-OS: Ventura - Python: 3.10 P
 ```
 pip install spatialprompt
 ```
-## Qucik start
+## Quick start
 ### Spatial spot deconvolution 
 For spot deconvolutiom SpatialPrompt requires:
 - `sc_array`: Matrix of Single-cell data, where rows are the cells and columns are the genes.
