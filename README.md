@@ -2,8 +2,6 @@
 
 Article url: [https://doi.org/10.1101/2023.09.07.556641](https://doi.org/10.1101/2023.09.07.556641) \
 SpatialPromptDB database url: [https://swainasish.github.io/SpatialPrompt/] \
-Tutorial.1.Mouse cortex: [Link](https://swainasish.github.io/SpatialPrompt/Tutorials/Tutorial_1_SpatialPrompt/) \
-Tutorial.2.Human dorsolateral prefrontal cortex: [Link](https://swainasish.github.io/SpatialPrompt/Tutorials/Tutorial_2_DLPFC/)
 ### Graphical overview 
 ![alt text](tutorials/images/graphical_abstract.png)
 SpatialPrompt integrates gene expression, spatial location, and reference single cell RNA sequencing data for spatial deconvolution.\
