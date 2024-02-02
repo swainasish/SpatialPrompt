@@ -31,5 +31,5 @@ Identification of Cell Type or Cluster-Specific Markers:
 The tl.rank_genes_groups function was employed to identify markers specific to each cell type or cluster.
 ### 4.Validation of Markers:
 
-The identified markers were manually validated using external databases, namely CellMarker48 and PanglaoDB63.
+The identified markers were manually validated using external databases, namely CellMarker and PanglaoDB.
 The top 20 markers with the highest log fold change values were selected for further validation.
