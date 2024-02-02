@@ -24,5 +24,6 @@ nav:
     - Tutorials/Tutorial_1_SpatialPrompt.md
     - Tutorials/Tutorial_2_DLPFC.md
   - SpatialPromptDB:
+    - SpatialPromptDB/Guideline to select scRNA-seq.md
     - SpatialPromptDB/human references.md
     - SpatialPromptDB/Mouse references.md
