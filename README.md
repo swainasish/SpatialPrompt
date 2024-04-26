@@ -12,10 +12,10 @@ Platforms: Ubuntu: 22.04/20.04, Windows: 10/11, Mac-OS: Ventura - Python: 3.10 P
 pip install spatialprompt
 ```
 ## Tutorials and Reproducibility section 
-### Tutorial-1 (10X Visium mouse cortex dataset) (Figure 3)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1leAZVF45zNLzgj6QQT2CCFLbL9vIdObl?usp=sharing)
-### Tutorial-2 (10X Visium human DLPFC dataset) (Figure 2)
+### Tutorial-1 (10X Visium human DLPFC dataset) (Figure 2)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hfn10gV3NbG4guAgOb1DRkSam4RxfdI1?usp=sharing)
+### Tutorial-2 (10X Visium mouse cortex dataset) (Figure 3)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1leAZVF45zNLzgj6QQT2CCFLbL9vIdObl?usp=sharing)
 
 ## Quick start
 ### Spatial spot deconvolution 
