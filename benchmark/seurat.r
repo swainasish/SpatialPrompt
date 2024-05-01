@@ -1,0 +1,11 @@
+library(Seurat)
+DefaultAssay(seurat_obj)="RNA"
+seurat_obj <- NormalizeData(seurat_obj, normalization.method = "LogNormalize", scale.factor = 10000)
+seurat_obj <- FindVariableFeatures(seurat_obj, selection.method = "vst", nfeatures = 2000)
+all.genes <- rownames(seurat_obj)
+seurat_obj<- ScaleData(seurat_obj, features = all.genes)
+seurat_obj <- RunPCA(seurat_obj, features = VariableFeatures(object = seurat_obj))
+seurat_obj <- FindNeighbors(seurat_obj, dims = 1:10)
+seurat_obj <- FindClusters(seurat_obj, resolution = 1)
+seurat_obj <- RunUMAP(seurat_obj, dims = 1:50)
+DimPlot(seurat_obj, reduction = "umap",label=T)
