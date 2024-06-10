@@ -92,8 +92,8 @@ y_cord = st_data.obs.array_col
 ```
 clus_model = sp.SpatialCluster()
 cortex_domains = clus_model.fit_predict(st_array = st_array,
-                                        x_cor = x_cord,
-                                        y_cor = y_cord,n_cluster=20)
+                                        x_cord = x_cord,
+                                        y_cord = y_cord,n_cluster=20)
 st_data.obs.loc[:,"SpatialPrompt: clusters"] = cortex_domains
 ```
 ##### Plot the results 
