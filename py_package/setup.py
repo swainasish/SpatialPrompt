@@ -10,7 +10,7 @@ classifiers = [
  
 setup(
   name='SpatialPrompt',
-  version='0.0.5',   #mandatory change
+  version='0.0.6',   #mandatory change
   description='Scalable and efficient cell type deconvolution and clustering in spatial transcriptomics',
   long_description=open('README.md').read() ,
   url='',  

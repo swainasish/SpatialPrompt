@@ -38,7 +38,7 @@ class SpatialDeconvolution:
             if n_cg < n_hvgs:
                 bar()
                 sc_df = sc_df.loc[:,common_genes]
-                st_df = sc_df.loc[:,common_genes]
+                st_df = st_df.loc[:,common_genes]
                 bar()
                 bar()
             else: 
