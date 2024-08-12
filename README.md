@@ -1,19 +1,6 @@
 # SpatialPrompt : Spatially aware scalable and accurate tool for spot deconvolution and clustering in spatial transcriptomics
 
 Article url: https://doi.org/10.1038/s42003-024-06349-5  \
-Cite the article : 
-```
-@article{swain2024spatialprompt,
-  title={SpatialPrompt: spatially aware scalable and accurate tool for spot deconvolution and domain identification in spatial transcriptomics},
-  author={Swain, Asish Kumar and Pandit, Vrushali and Sharma, Jyoti and Yadav, Pankaj},
-  journal={Communications Biology},
-  volume={7},
-  number={1},
-  pages={639},
-  year={2024},
-  publisher={Nature Publishing Group UK London}
-}
-```
 SpatialPromptDB database url: https://swainasish.github.io/SpatialPrompt/
 ### Graphical overview 
 ![alt text](tutorials/images/graphical_abstract.png)
@@ -111,4 +98,18 @@ sc.pl.spatial(st_data,color=("SpatialPrompt: clusters"),
               library_id='V1_Mouse_Brain_Sagittal_Anterior',
               palette="tab20")
 ```
-![alt text](tutorials/images/m_cortex_domains.png)
+![alt text](tutorials/images/m_cortex_domains.png) 
+
+Cite the article : 
+```
+@article{swain2024spatialprompt,
+  title={SpatialPrompt: spatially aware scalable and accurate tool for spot deconvolution and domain identification in spatial transcriptomics},
+  author={Swain, Asish Kumar and Pandit, Vrushali and Sharma, Jyoti and Yadav, Pankaj},
+  journal={Communications Biology},
+  volume={7},
+  number={1},
+  pages={639},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
+}
+```
